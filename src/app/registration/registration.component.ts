@@ -12,8 +12,34 @@ import { Router } from '@angular/router';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
-export class RegistrationComponent{
-  
+export class RegistrationComponent {
+  router: any;
+
+  constructor(private http: HttpClient) {
+
+  }
+  NewEmployee(employees: {
+    Name: any,
+    lastname: any,
+    gender: any,
+    cellnumber: any,
+    emailAdress: any,
+    Address: any,
+    IdNumber: any,
+    employeeId: any,
+    password: any,
+    department: any,
+    position: any,
+    EmergencyName: any,
+    emergencyRelationship: any,
+    emergencyNumber: any
+  }) {
+
+    console.log(employees);
+
+    this.http.post('http://localhost:3000/employeeData', employees).subscribe(() => {
+      console.log();
+    })
+  }
 }
 
- 
