@@ -1,12 +1,12 @@
 
 <div class="container">
-  <app-navigation></app-navigation>
-
    
 <div class="heading">
 
   <h1>Register Employee</h1>
 </div>
+
+
     <form class="row 3" #Info="ngForm" (ngSubmit)="NewEmployee(Info.value)">
 
       
@@ -81,12 +81,12 @@
 
   <div class="col12">
     <label for="emergencyrelationship" class="form-label">Emergency contact relationship</label>
-    <input type="emergencyrelationship" class="form-control" id="id" placeholder="Emergency contact relationship" name="emergencyRelationship"ngModel>
+    <input type="emergencyrelationship" class="form-control" id="id" placeholder="Emergency contact relationship" name="emergencyRelationship">
   </div>
 
   <div class="col13">
     <label for="emergencynumber" class="form-label">Emergency contact number</label>
-    <input type="emergencynumber" class="form-control" id="id" placeholder="Emergency contact number" name="emergencyNumber"ngModel>
+    <input type="emergencynumber" class="form-control" id="id" placeholder="Emergency contact number" name="emergencyNumber">
   </div>
 
 <div class="col14">
@@ -95,10 +95,6 @@
            
         
         </form>
-
-
-
-
 
 
 
