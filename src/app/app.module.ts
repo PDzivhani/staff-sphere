@@ -9,6 +9,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaySlipComponent } from './pages/pay-slip/pay-slip.component';
+import { UpDateComponent } from './components/up-date/up-date.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PaySlipComponent } from './pages/pay-slip/pay-slip.component';
     SideBarComponent,
     DashboardComponent,
     LoginComponent,
-    PaySlipComponent
+    PaySlipComponent,
+    UpDateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable,catchError } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class GetEmployeeDataService {
-
+  handleError:any
   //API goes here, but for now we using json file 
   private url = 'http://localhost:3000/employeeData';
 
@@ -19,5 +19,10 @@ export class GetEmployeeDataService {
   
   }
   
+  upDate(emp:any): Observable<any>{
+    return this.http.put(this.url,emp).pipe(
+      catchError(this.handleError('upDate'))
+    );
+  } 
   
 }

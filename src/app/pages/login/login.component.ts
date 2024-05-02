@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import {MyInterface} from 'src/app/interfaces/my-interface';
+import { GetEmployeeDataService } from 'src/app/services/get-employee-data.service';
+
 
 
 @Component({
@@ -12,16 +13,9 @@ import {MyInterface} from 'src/app/interfaces/my-interface';
 })
 export class LoginComponent {
 
-  empAdmin : MyInterface={
-    email:"yandi@gmail.com" ,
-    password: "1234" 
-  }
-  
-   
-
   //This declares the as part of formGroup and making sure that the for form is initialised b4 used  
   public loginForm !:FormGroup
-  details: any;
+  
 
   constructor(private formbuilder:FormBuilder, private http: HttpClient, private router:Router){}
 
@@ -30,6 +24,7 @@ export class LoginComponent {
       email: [''],
       password: ['', Validators.required]
     })
+    
   }
 
   login()
@@ -41,15 +36,15 @@ export class LoginComponent {
         });
         console.log(this.loginForm);
         
-        if(theUser)
+        if(theUser.email==="yandi@gmail.com" && theUser.password==="1234")
         {
           this.loginForm.reset();
           this.router.navigate(["/dashboard"])
-        // }else if( theUser.email==="yandi@gmail.com" && theUser.password===){
+        }else if(theUser){
           
-        //   this.loginForm.reset();
-        //   this.router.navigate(["/side-bar"])
-         }
+            this.loginForm.reset();
+            this.router.navigate(["/side-bar"])
+        }
         else
         {
           alert("User not found")
